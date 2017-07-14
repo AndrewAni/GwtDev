@@ -1,0 +1,9 @@
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.8.0//EN"
+        "http://gwtproject.org/doctype/2.8.0/gwt-module.dtd">
+<module rename-to="client">
+    <inherits name="com.google.gwt.user.User"/>
+    <inherits name="com.google.web.bindery.requestfactory.RequestFactory"/>
+
+    <entry-point class="foo.bar.client.ClientEntryPoint"/>
+    <source path="client"/>
+</module>
