@@ -29,6 +29,9 @@
                 <configuration>
                     <warDir>${project.basedir}/war/target/war-${project.version}/</warDir>
                     <launcherDir>${project.basedir}/war/target/war-${project.version}/</launcherDir>
+                    <jvmArgs>
+                      <arg>-agentlib:jdwp=transport=dt_socket,address=localhost:8000,server=y,suspend=n</arg>
+                    </jvmArgs>
                 </configuration>
             </plugin>
         </plugins>
