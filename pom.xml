@@ -17,6 +17,7 @@
     <modules>
         <module>client</module>
         <module>server</module>
+        <module>war</module>
     </modules>
 
     <build>
@@ -32,6 +33,11 @@
                         <encoding>UTF-8</encoding>
                     </configuration>
                 </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.1.0</version>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
@@ -42,6 +48,7 @@
                 <groupId>foo.bar</groupId>
                 <artifactId>client</artifactId>
                 <version>${project.version}</version>
+                <type>war</type>
             </dependency>
             <dependency>
                 <groupId>foo.bar</groupId>

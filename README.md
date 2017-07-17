@@ -1,1 +1,0 @@
-Simply run `mvn clean install`, and it would start GWT SuperDev mode in debug.
