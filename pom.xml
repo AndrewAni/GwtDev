@@ -21,6 +21,17 @@
     </modules>
 
     <build>
+        <plugins>
+            <plugin>
+                <groupId>net.ltgt.gwt.maven</groupId>
+                <artifactId>gwt-maven-plugin</artifactId>
+                <inherited>false</inherited>
+                <configuration>
+                    <warDir>${project.basedir}/war/target/war-${project.version}/</warDir>
+                    <launcherDir>${project.basedir}/war/target/war-${project.version}/</launcherDir>
+                </configuration>
+            </plugin>
+        </plugins>
         <pluginManagement>
             <plugins>
                 <plugin>
