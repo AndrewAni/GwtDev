@@ -9,7 +9,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>client</artifactId>
-    <packaging>war</packaging>
+    <packaging>gwt-app</packaging>
     <name>Client</name>
 
     <build>
@@ -27,19 +27,14 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
+                <groupId>net.ltgt.gwt.maven</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
-                <version>${gwt.version}</version>
                 <configuration>
                     <logLevel>WARN</logLevel>
+                    <moduleName>foo.bar.Client</moduleName>
+                    <moduleShortName>client</moduleShortName>
+                    <skipModule>true</skipModule>
                 </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>compile</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
@@ -48,7 +43,6 @@
         <dependency>
             <groupId>foo.bar</groupId>
             <artifactId>server</artifactId>
-            <scope>provided</scope>
             <exclusions>
                 <exclusion>
                     <artifactId>*</artifactId>
@@ -61,13 +55,11 @@
             <groupId>com.google.gwt</groupId>
             <artifactId>gwt-user</artifactId>
             <version>${gwt.version}</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.google.gwt</groupId>
             <artifactId>gwt-dev</artifactId>
             <version>${gwt.version}</version>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>

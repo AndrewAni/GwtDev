@@ -38,6 +38,16 @@
                     <artifactId>maven-war-plugin</artifactId>
                     <version>3.1.0</version>
                 </plugin>
+                <plugin>
+                    <groupId>net.ltgt.gwt.maven</groupId>
+                    <artifactId>gwt-maven-plugin</artifactId>
+                    <version>1.0-rc-8</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <sourceLevel>1.8</sourceLevel>
+                        <failOnError>true</failOnError>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
