@@ -17,9 +17,24 @@
     <modules>
         <module>client</module>
         <module>server</module>
+        <module>war</module>
     </modules>
 
     <build>
+        <plugins>
+            <plugin>
+                <groupId>net.ltgt.gwt.maven</groupId>
+                <artifactId>gwt-maven-plugin</artifactId>
+                <inherited>false</inherited>
+                <configuration>
+                    <warDir>${project.basedir}/war/target/war-${project.version}/</warDir>
+                    <launcherDir>${project.basedir}/war/target/war-${project.version}/</launcherDir>
+                    <jvmArgs>
+                      <arg>-agentlib:jdwp=transport=dt_socket,address=localhost:8000,server=y,suspend=n</arg>
+                    </jvmArgs>
+                </configuration>
+            </plugin>
+        </plugins>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -32,6 +47,21 @@
                         <encoding>UTF-8</encoding>
                     </configuration>
                 </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.1.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>net.ltgt.gwt.maven</groupId>
+                    <artifactId>gwt-maven-plugin</artifactId>
+                    <version>1.0-rc-8</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <sourceLevel>1.8</sourceLevel>
+                        <failOnError>true</failOnError>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
@@ -42,24 +72,12 @@
                 <groupId>foo.bar</groupId>
                 <artifactId>client</artifactId>
                 <version>${project.version}</version>
+                <type>war</type>
             </dependency>
             <dependency>
                 <groupId>foo.bar</groupId>
                 <artifactId>server</artifactId>
                 <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.google.gwt</groupId>
-                <artifactId>gwt-user</artifactId>
-                <version>${gwt.version}</version>
-                <scope>provided</scope>
-                <exclusions>
-                    <exclusion>
-                        <artifactId>validation-api</artifactId>
-                        <groupId>javax.validation</groupId>
-                    </exclusion>
-                </exclusions>
             </dependency>
 
             <dependency>
